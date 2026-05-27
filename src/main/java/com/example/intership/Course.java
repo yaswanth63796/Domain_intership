@@ -1,30 +1,37 @@
 package com.example.intership;
 
-public class Course {
-    private int    coursecode;
-    private String subjectname;
-    private int credits;
 
-    public Course(int coursecode, String subjectname, int credits) {
+import org.springframework.stereotype.Component;
+
+@Component
+public class Course {
+   private String coursecode;
+   private String courseName;
+   private int credits;
+
+    public Course() {
+    }
+
+    public Course(String coursecode, String courseName, int credits) {
         this.coursecode = coursecode;
-        this.subjectname = subjectname;
+        this.courseName = courseName;
         this.credits = credits;
     }
 
-    public int  getCoursecode() {
+    public String getCoursecode() {
         return coursecode;
     }
 
-    public void setCoursecode(int  coursecode) {
+    public void setCoursecode(String coursecode) {
         this.coursecode = coursecode;
     }
 
-    public String getSubjectname() {
-        return subjectname;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setSubjectname(String subjectname) {
-        this.subjectname = subjectname;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public int getCredits() {
