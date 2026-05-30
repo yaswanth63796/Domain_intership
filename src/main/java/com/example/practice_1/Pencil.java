@@ -1,16 +1,14 @@
 package com.example.practice_1;
 
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
 
 
-public class Pen implements Writer{
-
+public class Pencil implements Writer {
     public void write(){
-        System.out.println("iam writing the exam using the pen");
+        System.out.println("writing the exam using the pencil");
     }
 }
