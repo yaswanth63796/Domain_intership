@@ -6,16 +6,36 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
+
 public class Student  {
 
-    int age;
+    //Field Injextion
+      //@Autowired
+      //Pen P;
+
+    /*
+    @Autowired
+    Pen P;
+    public Student(Pen P){
+        this.P=P;
+    }
+*/
+    /*
+    Pen P;
+    @Autowired
+    public void  setter(Pen P){
+        this.P=P;
+    }
+
+     */
+
     public void study(){
 
         System.out.println("iam pursuing engineering");
     }
-    public Student(){
-        System.out.println("the object created");
+
+    public void writeexam(){
+        P.write();
     }
 
 
