@@ -10,8 +10,12 @@ public class Practice1Application {
 	public static void main(String[] args) {
 
         ApplicationContext context=SpringApplication.run(Practice1Application.class, args);
-        Student S=context.getBean(Student.class);
-        S.study();
+        Student s1=context.getBean(Student.class);
+        s1.study();
+        s1.age=20;
+        Student s2=context.getBean(Student.class);
+        System.out.println(s1.age+" "+s2.age);
+
 	}
 
 
