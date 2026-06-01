@@ -44,7 +44,12 @@ public class StudentService {
 
     }
 
-    public Student deletestudentByid(int rno) {
-        return repo.deleteById(rno);
+    public String deletestudentByid(int rno) {
+           if(repo.existsById(rno)) {
+               repo.deleteById(rno);
+               return "Sucessfully deleted";
+           }
+
+           return "student data not found";
     }
 }
