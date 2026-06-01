@@ -10,39 +10,40 @@ import java.util.List;
 
 @RestController
 @RequestMapping("Student")
+
 public class StudentController {
 
-        @Autowired
-       StudentService s;
+    @Autowired
+    StudentService s;
 
 
-        @GetMapping("/get")
-    public List<Student> getallstudents(){
+    @GetMapping("/get")
+    public List<Student> getallstudents() {
         return s.getallstudents();
     }
 
     @PostMapping("/add")
-     public String addStudent(@RequestBody Student student){
-             s.addStudent(student);
-             return "sucesss";
+    public String addStudent(@RequestBody Student student) {
+        s.addStudent(student);
+        return "sucesss";
     }
 
     @GetMapping("search/{rno}")
 
-    public Student getStudentByid(@PathVariable int rno){
-            return s.getStudentByid(rno);
+    public Student getStudentByid(@PathVariable int rno) {
+        return s.getStudentByid(rno);
     }
 
     @DeleteMapping("/delete/{rno}")
-    public String deletestudentByid(@PathVariable int rno){
-             s.deletestudentByid(rno);
-             return "sucesfully deleted";
+    public String deletestudentByid(@PathVariable int rno) {
+        s.deletestudentByid(rno);
+        return "sucesfully deleted";
     }
 
     @PutMapping("/update/{rno}")
-    public Student updatestudentByid(@PathVariable int rno,@RequestBody Student updatestudent){
+    public Student updatestudentByid(@PathVariable int rno, @RequestBody Student updatestudent) {
 
-            return s.updatestudent(rno,updatestudent);
+        return s.updatestudent(rno, updatestudent);
 
     }
 }
