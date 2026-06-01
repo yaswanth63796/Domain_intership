@@ -22,8 +22,9 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-     public Student addStudent(@RequestBody Student student){
-            return s.addStudent(student);
+     public String addStudent(@RequestBody Student student){
+             s.addStudent(student);
+             return "sucesss";
     }
 
     @GetMapping("search/{rno}")
@@ -33,8 +34,9 @@ public class StudentController {
     }
 
     @DeleteMapping("/delete/{rno}")
-    public Student deletestudentByid(@PathVariable int rno){
-            return s.deletestudentByid(rno);
+    public String deletestudentByid(@PathVariable int rno){
+             s.deletestudentByid(rno);
+             return "sucesfully deleted";
     }
 
     @PutMapping("/update/{rno}")
