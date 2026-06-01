@@ -26,4 +26,21 @@ public class StudentController {
             return s.addStudent(student);
     }
 
+    @GetMapping("search/{rno}")
+
+    public Student getStudentByid(@PathVariable int rno){
+            return s.getStudentByid(rno);
+    }
+
+    @DeleteMapping("/delete/{rno}")
+    public Student deletestudentByid(@PathVariable int rno){
+            return s.deletestudentByid(rno);
+    }
+
+    @PutMapping("/update/{rno}")
+    public Student updatestudentByid(@PathVariable int rno,@RequestBody Student updatestudent){
+
+            return s.updatestudent(rno,updatestudent);
+
+    }
 }
