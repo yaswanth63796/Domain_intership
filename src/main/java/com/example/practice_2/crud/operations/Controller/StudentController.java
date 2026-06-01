@@ -19,31 +19,27 @@ public class StudentController {
 
     @GetMapping("/get")
     public List<Student> getallstudents() {
+
         return s.getallstudents();
     }
 
     @PostMapping("/add")
-    public String addStudent(@RequestBody Student student) {
-        s.addStudent(student);
-        return "sucesss";
+    public Student addstudent(@RequestBody Student student){
+         s.addstudent(student);
+         return student;
     }
 
-    @GetMapping("search/{rno}")
-
-    public Student getStudentByid(@PathVariable int rno) {
+    @GetMapping("/get/{rno}")
+     public Student getstudentByid(@PathVariable int rno){
         return s.getStudentByid(rno);
-    }
-
-    @DeleteMapping("/delete/{rno}")
-    public String deletestudentByid(@PathVariable int rno) {
-        s.deletestudentByid(rno);
-        return "sucesfully deleted";
-    }
-
-    @PutMapping("/update/{rno}")
-    public Student updatestudentByid(@PathVariable int rno, @RequestBody Student updatestudent) {
-
-        return s.updatestudent(rno, updatestudent);
 
     }
+   @PutMapping("/update/{rno}")
+    public Student updateStudentByid(@PathVariable int rno,@RequestBody Student update){
+         return s.updateStudent(rno,update);
+   }
+   @DeleteMapping("/delete/{rno}")
+    public String deletestudentByid(@PathVariable int rno){
+        return s.deletestudentByid(rno);
+   }
 }
