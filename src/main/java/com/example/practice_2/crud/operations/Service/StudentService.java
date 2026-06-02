@@ -2,6 +2,7 @@ package com.example.practice_2.crud.operations.Service;
 
 import com.example.practice_2.crud.operations.Repository.Studentrepo;
 import com.example.practice_2.crud.operations.model.Student;
+import com.example.practice_2.crud.operations.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -52,4 +53,6 @@ public class StudentService {
 
            return "student data not found";
     }
+
+
 }
