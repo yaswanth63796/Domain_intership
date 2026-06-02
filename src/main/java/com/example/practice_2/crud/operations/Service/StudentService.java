@@ -59,4 +59,13 @@ public class StudentService {
 
         return repo.findByNameAndTech(name,tech);
     }
+
+    public List<Student> getstudentbytech(String tech) {
+        return repo.findByTech(tech);
+    }
+
+    public List<Student> getstudentbytechandname(String name, String tech) {
+
+          return repo.findByNameTech(name,tech);
+    }
 }

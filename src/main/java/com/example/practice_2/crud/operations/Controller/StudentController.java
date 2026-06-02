@@ -53,4 +53,22 @@ public class StudentController {
 
 
     }
+
+    @GetMapping("/custom/{tech}")
+    public List<Student>getstudentbytech(@PathVariable String tech){
+
+        return s.getstudentbytech(tech);
+
+    }
+
+    @PostMapping("/custom/filter")
+
+    public List<Student>getstudentbytechname(
+            @Param("name") String name,@Param("tech") String tech
+    ){
+
+         return s.getstudentbytechandname(name,tech);
+    }
+
+
 }
