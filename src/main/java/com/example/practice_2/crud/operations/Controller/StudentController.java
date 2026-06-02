@@ -40,6 +40,7 @@ public class StudentController {
    }
    @DeleteMapping("/delete/{rno}")
     public String deletestudentByid(@PathVariable int rno){
-        return s.deletestudentByid(rno);
+         s.deletestudentByid(rno);
+         return "deleted sucesfully";
    }
 }
