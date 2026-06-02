@@ -4,6 +4,7 @@ package com.example.practice_2.crud.operations.Controller;
 import com.example.practice_2.crud.operations.Service.StudentService;
 import com.example.practice_2.crud.operations.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,4 +44,13 @@ public class StudentController {
          s.deletestudentByid(rno);
          return "deleted sucesfully";
    }
+
+
+    @GetMapping("/custom/get")
+    public List<Student> getstudentbytechandname(@Param("name") String name, @Param("tech")String tech){
+        return s.getbynametech(name,tech);
+
+
+
+    }
 }

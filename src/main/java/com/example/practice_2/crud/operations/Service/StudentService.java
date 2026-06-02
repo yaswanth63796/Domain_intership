@@ -55,4 +55,8 @@ public class StudentService {
     }
 
 
+    public List<Student> getbynametech(String name, String tech) {
+
+        return repo.findByNameAndTech(name,tech);
+    }
 }
