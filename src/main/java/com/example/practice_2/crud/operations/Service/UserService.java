@@ -1,13 +1,11 @@
 package com.example.practice_2.crud.operations.Service;
 
 
+import com.example.practice_2.crud.operations.Dto.UserDto;
 import com.example.practice_2.crud.operations.Repository.Userrepo;
-import com.example.practice_2.crud.operations.model.Student;
 import com.example.practice_2.crud.operations.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserService {
@@ -35,5 +33,37 @@ public class UserService {
          }
     }
 
+
+    public UserDto getById(int id) {
+        User u1=repo.findById(id).orElse(null);
+
+        return convertStudenttoDto(u1);
+    }
+
+    public UserDto convertStudenttoDto(User u1){
+        UserDto dto=new UserDto();
+        dto.setId(u1.getId());
+        dto.setName(u1.getName());
+        dto.setGender(u1.getGender());
+        dto.setEmail(u1.getEmail());
+
+        return dto;
+    }
+
+    public UserDto adduser(UserDto user) {
+          repo.save(convertuser(user));
+          return user;
+    }
+
+    public User convertuser(UserDto user){
+
+         User user1=new User();
+         user1.setId(user.getId());
+         user1.setEmail(user.getEmail());
+         user1.setGender(user.getGender());
+         user1.setName(user.getName());
+         return user1;
+
+    }
 
 }

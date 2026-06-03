@@ -1,6 +1,7 @@
 package com.example.practice_2.crud.operations.Controller;
 
 
+import com.example.practice_2.crud.operations.Dto.UserDto;
 import com.example.practice_2.crud.operations.Service.StudentService;
 import com.example.practice_2.crud.operations.Service.UserService;
 import com.example.practice_2.crud.operations.model.Student;
@@ -33,5 +34,15 @@ public class UserController {
           );
       }
 
+      @GetMapping("/get/{id}")
+    public UserDto getById(@PathVariable int id){
+        return  s.getById(id);
 
+      }
+
+      @PostMapping("/adduser")
+    public    UserDto adduser(@RequestBody UserDto user)
+      {
+            return s.adduser(user);
+      }
 }

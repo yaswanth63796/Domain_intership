@@ -3,7 +3,10 @@ package com.example.practice_2.crud.operations.Controller;
 
 import com.example.practice_2.crud.operations.Service.StudentService;
 import com.example.practice_2.crud.operations.model.Student;
+
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +28,7 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public Student addstudent(@RequestBody Student student){
+    public Student addstudent( @Valid @RequestBody Student student){
          s.addstudent(student);
          return student;
     }
@@ -36,7 +39,7 @@ public class StudentController {
 
     }
    @PutMapping("/update/{rno}")
-    public Student updateStudentByid(@PathVariable int rno,@RequestBody Student update){
+    public Student updateStudentByid(@Valid @PathVariable int rno,@RequestBody Student update){
          return s.updateStudent(rno,update);
    }
    @DeleteMapping("/delete/{rno}")
@@ -68,6 +71,11 @@ public class StudentController {
     ){
 
          return s.getstudentbytechandname(name,tech);
+    }
+
+    @GetMapping("/students")
+    public Page<Student>getAllstudent(@RequestParam("page") int page,@RequestParam ("size") int size){
+        return s.getAllstudent(page,size);
     }
 
 

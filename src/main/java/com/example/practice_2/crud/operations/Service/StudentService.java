@@ -4,6 +4,8 @@ import com.example.practice_2.crud.operations.Repository.Studentrepo;
 import com.example.practice_2.crud.operations.model.Student;
 import com.example.practice_2.crud.operations.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -67,5 +69,12 @@ public class StudentService {
     public List<Student> getstudentbytechandname(String name, String tech) {
 
           return repo.findByNameTech(name,tech);
+    }
+
+    public Page<Student> getAllstudent(int page, int size) {
+
+      return  repo.findAll(PageRequest.of(
+                page,size
+        ));
     }
 }
