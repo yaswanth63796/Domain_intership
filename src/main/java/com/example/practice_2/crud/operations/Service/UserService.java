@@ -21,7 +21,7 @@ public class UserService {
 
     public String login(String email, String password) {
 
-         User user=repo.findByemail(email);
+         User user=repo.getByEmail(email);
          if(user==null){
              return "user not found";
          }
