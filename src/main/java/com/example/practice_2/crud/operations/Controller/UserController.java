@@ -8,6 +8,7 @@ import com.example.practice_2.crud.operations.model.Student;
 import com.example.practice_2.crud.operations.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +20,14 @@ public class UserController {
     @Autowired
     UserService s;
 
+
+    BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(12);
+
+
       @PostMapping("/register")
     public User registeruser(@RequestBody User user){
+
+           user.setPassword(passwordEncoder.encode(user.getPassword()));
            s.registeruser(user);
            return user;
       }

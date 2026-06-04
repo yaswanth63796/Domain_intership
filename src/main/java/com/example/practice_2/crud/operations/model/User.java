@@ -1,12 +1,10 @@
 package com.example.practice_2.crud.operations.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Generated;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -16,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Table(name="users")
 public class User {
       @Id
+
       private   Integer id;
       private String name;
       private String email;

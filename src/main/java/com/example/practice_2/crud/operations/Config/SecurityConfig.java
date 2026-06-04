@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsPasswordService;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -29,9 +30,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http){
         http.csrf(Customizer->Customizer.disable());//csrf disable
         http.authorizeHttpRequests(Request->Request.anyRequest().authenticated()); //authorize any http requests
-//         http.formLogin(Customizer.withDefaults());  //gives login to browser
+       http.formLogin(Customizer.withDefaults());  //gives login to browser
         http.httpBasic(Customizer.withDefaults());  //gives suthentication to postman
-        http.sessionManagement(Session->Session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));  //each time it creates session Id
+       // http.sessionManagement(Session->Session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));  //each time it creates session Id
         return http.build();
     }
 
@@ -43,7 +44,7 @@ public class SecurityConfig {
 
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider(service);
 
-        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
 
 
         return provider;
