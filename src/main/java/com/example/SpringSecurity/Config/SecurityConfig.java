@@ -20,7 +20,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http){
          http.csrf(Customizer->Customizer.disable());//csrf disable
          http.authorizeHttpRequests(Request->Request.anyRequest().authenticated()); //authorize any http requests
-         http.formLogin(Customizer.withDefaults());  //gives login to browser
+//         http.formLogin(Customizer.withDefaults());  //gives login to browser
          http.httpBasic(Customizer.withDefaults());  //gives suthentication to postman
          http.sessionManagement(Session->Session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));  //each time it creates session Id
         return http.build();
